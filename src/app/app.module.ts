@@ -8,13 +8,15 @@ import { QuestionComponent } from './question/question.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { routing } from './app.routing';
 import { HomeComponent } from './home/home.component';
+import { QuizDetailComponent } from './quiz-detail/quiz-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     QuestionComponent,
     QuizComponent,
-    HomeComponent
+    HomeComponent,
+    QuizDetailComponent
   ],
   imports: [
     BrowserModule,

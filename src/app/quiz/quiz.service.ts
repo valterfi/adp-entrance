@@ -1,7 +1,8 @@
-import { Quizzes } from './../model/quizzes';
-import { Quiz } from './../model/quiz';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+
+import { Quizzes } from './../model/quizzes';
+import { Quiz } from './../model/quiz';
 
 @Injectable()
 export class QuizService {

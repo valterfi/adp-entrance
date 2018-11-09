@@ -1,8 +1,7 @@
+import { Component, OnInit } from '@angular/core';
+
 import { QuizService } from './../quiz/quiz.service';
 import { Quizzes } from './../model/quizzes';
-import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
-import { Quiz } from '../model/quiz';
 
 @Component({
   selector: 'app-home',

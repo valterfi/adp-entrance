@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
+import { QuizService } from './../quiz/quiz.service';
 
-import { Quiz } from "../model/quiz";
+import { Quiz } from './../model/quiz';
 
 @Component({
   selector: 'app-quiz',
@@ -10,18 +11,14 @@ import { Quiz } from "../model/quiz";
 })
 export class QuizComponent implements OnInit {
 
-  visible: boolean = false;
+  quiz: Quiz;
 
-  @Input() quiz: Quiz;
-
-  constructor() { }
+  constructor(private quizService: QuizService) { 
+    this.quiz = this.quizService.getQuiz();
+  }
 
   ngOnInit() {
 
-  }
-
-  startQuiz() {
-    
   }
 
 }

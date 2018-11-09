@@ -1,3 +1,8 @@
 <p>
-  <button (click)="startQuiz()">{{quiz.title}}</button>
+  Teste:
+  {{quiz.title}}
 </p>
+
+  <div *ngFor="let question of quiz?.questions">
+      <app-question [question]="question"></app-question>
+  </div>
