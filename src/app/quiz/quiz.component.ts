@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Quiz } from "../model/quiz";
 
 @Component({
   selector: 'app-quiz',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuizComponent implements OnInit {
 
+  visible: boolean = false;
+
+  @Input() quiz: Quiz;
+
   constructor() { }
 
   ngOnInit() {
+
+  }
+
+  startQuiz() {
+    
   }
 
 }
