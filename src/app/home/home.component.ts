@@ -1,6 +1,8 @@
+import { QuizService } from './../quiz/quiz.service';
 import { Quizzes } from './../model/quizzes';
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
+import { Quiz } from '../model/quiz';
 
 @Component({
   selector: 'app-home',
@@ -11,12 +13,11 @@ export class HomeComponent implements OnInit {
 
   quizzes: Quizzes = new Quizzes();
 
-  constructor(private http: Http) {
-    this.quizzes.quizzes = [];
-    http.get('./src/quiz.json').subscribe(res => {
+  constructor(private quizService: QuizService) {
+    quizService.getQuizzes().subscribe(res => {
       this.quizzes = Object.assign(new Quizzes(), res.json());
-      console.log(this.quizzes);
-    });
+    }); 
+
   }
 
   ngOnInit() {

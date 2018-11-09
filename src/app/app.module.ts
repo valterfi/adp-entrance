@@ -1,3 +1,4 @@
+import { QuizService } from './quiz/quiz.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
@@ -20,7 +21,7 @@ import { HomeComponent } from './home/home.component';
     HttpModule,
     routing
   ],
-  providers: [],
+  providers: [QuizService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
