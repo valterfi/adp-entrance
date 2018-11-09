@@ -1,9 +1,17 @@
-<h1>Question</h1>
 
-<p>
-  {{question.question}}
-</p>
 
-<div *ngFor="let answer of question?.answers">
-    <button>{{answer.content}}</button>
-</div>
+
+<div class="card text-center">
+    <div class="card-header">
+      Question
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{question.question}}</h5>
+      <div *ngFor="let answer of question?.answers">
+          <button class="btn btn-primary">{{answer.content}}</button>
+      </div>
+    </div>
+    <div class="card-footer text-muted">
+      2 days ago
+    </div>
+  </div>
