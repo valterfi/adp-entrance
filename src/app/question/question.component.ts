@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { interval, Subscription } from 'rxjs';
 
 import { Question } from "../model/question";
+import { Quiz } from "../model/quiz";
 
 @Component({
   selector: 'app-question',
@@ -9,13 +12,49 @@ import { Question } from "../model/question";
 })
 export class QuestionComponent implements OnInit {
 
-  visible: boolean = false;
+  currentIndex: number = 0;
 
-  @Input() question: Question;
+  count: number = 0;
 
-  constructor() { }
+  @Input() quiz: Quiz;
+
+  question: Question;
+
+  source = interval(1000);
+
+  subscribe$: Subscription;
+
+  constructor(private router: Router) { 
+    
+  }
 
   ngOnInit() {
+    this.question = this.quiz.questions[0];
+    this.initializeCount();
+  }
+
+  initializeCount() {
+    this.subscribe$ = this.source.subscribe(val => { 
+      this.count = val;
+      if (this.count == 1) {
+        this.count = 0;
+        this.nextQuestion();
+      }
+    });
+  }
+
+  nextQuestion() {
+    let questionLenght = this.quiz.questions.length;
+    if (questionLenght > this.currentIndex + 1) {
+      this.currentIndex = this.currentIndex + 1;
+      this.question = this.quiz.questions[this.currentIndex];
+      this.subscribe$.unsubscribe();
+      this.initializeCount();
+    } else {
+      this.currentIndex = 0;
+      this.subscribe$.unsubscribe();
+      this.router.navigate(['/']);
+    }
   }
 
 }

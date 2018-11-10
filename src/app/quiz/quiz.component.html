@@ -3,6 +3,6 @@
   {{quiz.title}}
 </p>
 
-  <div *ngFor="let question of quiz?.questions">
-      <app-question [question]="question"></app-question>
+  <div>
+      <app-question [quiz]="quiz"></app-question>
   </div>
