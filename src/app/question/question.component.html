@@ -4,17 +4,20 @@
   </div>
   <div class="card-body">
     <h5 class="card-title">{{question.question}}</h5>
-    <div *ngFor="let answer of question?.answers">
-        <button 
-        (click)="answerQuestion(answer)"
-        class="btn" 
-        [ngClass]="{
-          'btn-primary': !answered,
-          'btn-success': answered && answer.value,
-          'btn-danger': answered && !answer.value
-        }"
-        [disabled]="answered"
-        >{{answer.content}}</button>
+    <div class="btn-group" *ngFor="let answer of question?.answers">
+        <div class="btn-group mr-2" role="group">
+            <button 
+            (click)="answerQuestion(answer)"
+            class="btn" 
+            [ngClass]="{
+              'btn-primary': !answered,
+              'btn-success': answered && answer.value,
+              'btn-danger': answered && !answer.value
+            }"
+            [disabled]="answered"
+            >{{answer.content}}</button>
+            <br/>
+      </div>
     </div>
   </div>
   <div class="card-footer text-muted">
