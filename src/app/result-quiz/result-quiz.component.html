@@ -1,0 +1,11 @@
+<h1 class="text-center" >Score: {{score}}</h1>
+
+<div *ngIf="pass" class="alert alert-success text-center" role="alert">
+  Pass!
+</div>
+<div *ngIf="!pass" class="alert alert-danger text-center" role="alert">
+  Fail!
+</div>
+<div class="text-center">
+  <button type="button" class="btn btn-secondary" (click)="restartQuiz()">Restart Quiz</button>
+</div>

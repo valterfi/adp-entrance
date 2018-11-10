@@ -60,7 +60,7 @@ export class QuestionComponent implements OnInit {
     } else {
       this.currentIndex = 0;
       this.subscribe$.unsubscribe();
-      this.router.navigate(['/']);
+      this.router.navigate(['/result']);
     }
   }
 
