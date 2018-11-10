@@ -10,6 +10,8 @@ import { Quiz } from './../model/quiz';
 })
 export class QuizComponent implements OnInit {
 
+  score: number = 0;
+
   quiz: Quiz;
 
   constructor(private quizService: QuizService) { 
@@ -18,6 +20,11 @@ export class QuizComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  onChangedScore(event) {
+    this.score = this.score + event.addScore;
+    this.quizService.setScore(this.score);
   }
 
 }

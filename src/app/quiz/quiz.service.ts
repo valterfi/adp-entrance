@@ -7,6 +7,8 @@ import { Quiz } from './../model/quiz';
 @Injectable()
 export class QuizService {
 
+  score: number;
+
   quiz: Quiz;
 
   quizzes: Quizzes = new Quizzes();
@@ -24,5 +26,13 @@ export class QuizService {
 
   getQuiz(): Quiz {
     return this.quiz;
+  }
+
+  setScore(score) {
+    this.score = score;
+  }
+
+  getScore(): number {
+    return this.score;
   }
 }

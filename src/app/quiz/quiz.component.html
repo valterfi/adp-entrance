@@ -1,8 +1,10 @@
-<p>
-  Teste:
-  {{quiz.title}}
-</p>
+  
+  <h1 class="text-center">{{quiz.title}}</h1>
+
+  <h2 class="text-right">Score: {{score}}</h2>
 
   <div>
-      <app-question [quiz]="quiz"></app-question>
+      <app-question [quiz]="quiz"
+      (changedScore)="onChangedScore($event)"
+      ></app-question>
   </div>

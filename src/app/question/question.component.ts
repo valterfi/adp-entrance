@@ -1,10 +1,11 @@
 import { Answer } from './../model/answer';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { interval, Subscription } from 'rxjs';
 
 import { Question } from "../model/question";
 import { Quiz } from "../model/quiz";
+
 
 @Component({
   selector: 'app-question',
@@ -18,6 +19,8 @@ export class QuestionComponent implements OnInit {
   count: number = 0;
 
   @Input() quiz: Quiz;
+
+  @Output() changedScore = new EventEmitter();
 
   question: Question;
 
@@ -63,7 +66,11 @@ export class QuestionComponent implements OnInit {
 
   answerQuestion(answer: Answer) {
     this.answered = true;
-    console.log(answer.value);
+    if (answer.value) {
+      this.changedScore.emit({addScore: 1}) ;
+    } else {
+      this.changedScore.emit({addScore: 0});
+    }
   }
 
 }
