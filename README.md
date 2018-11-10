@@ -83,3 +83,7 @@ $ npm install
 $ node_modules/\@angular/cli/bin/ng serve
 ```
 - The application will be available in http://localhost:4200/
+
+## Example instance
+
+- http://18.224.182.136/app/
