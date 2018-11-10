@@ -1,17 +1,23 @@
-
-
-
 <div class="card text-center">
-    <div class="card-header">
-      Question {{currentIndex + 1}}
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">{{question.question}}</h5>
-      <div *ngFor="let answer of question?.answers">
-          <button class="btn btn-primary">{{answer.content}}</button>
-      </div>
-    </div>
-    <div class="card-footer text-muted">
-      You have {{2 - count}} seconds
+  <div class="card-header">
+    Question {{currentIndex + 1}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{question.question}}</h5>
+    <div *ngFor="let answer of question?.answers">
+        <button 
+        (click)="answerQuestion(answer)"
+        class="btn" 
+        [ngClass]="{
+          'btn-primary': !answered,
+          'btn-success': answered && answer.value,
+          'btn-danger': answered && !answer.value
+        }"
+        [disabled]="answered"
+        >{{answer.content}}</button>
     </div>
   </div>
+  <div class="card-footer text-muted">
+    You have {{2 - count}} seconds
+  </div>
+</div>

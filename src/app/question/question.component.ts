@@ -1,3 +1,4 @@
+import { Answer } from './../model/answer';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { interval, Subscription } from 'rxjs';
@@ -24,6 +25,8 @@ export class QuestionComponent implements OnInit {
 
   subscribe$: Subscription;
 
+  answered: boolean = false;
+
   constructor(private router: Router) { 
     
   }
@@ -48,6 +51,7 @@ export class QuestionComponent implements OnInit {
     if (questionLenght > this.currentIndex + 1) {
       this.currentIndex = this.currentIndex + 1;
       this.question = this.quiz.questions[this.currentIndex];
+      this.answered = false;
       this.subscribe$.unsubscribe();
       this.initializeCount();
     } else {
@@ -55,6 +59,11 @@ export class QuestionComponent implements OnInit {
       this.subscribe$.unsubscribe();
       this.router.navigate(['/']);
     }
+  }
+
+  answerQuestion(answer: Answer) {
+    this.answered = true;
+    console.log(answer.value);
   }
 
 }
