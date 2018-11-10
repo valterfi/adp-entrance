@@ -70,4 +70,16 @@ When the user has finished answering all three questions:
 - push your finished app to Github
 - provide your username and repo to an instructor
 
-Good luck!
+## Installation instructions
+
+- requirements: at least version v7.2.0 of node.js
+- commands: 
+
+```sh
+$ npm install
+```
+
+```sh
+$ node_modules/\@angular/cli/bin/ng serve
+```
+- The application will be available in http://localhost:4200/
